@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import {useTable} from 'react-table'
-import MOCK_DATA from '../../public/assets/MOCK_DATA.json'
+import MOCK_DATA from '../assets/MOCK_DATA.json'
 import { COLUMNS } from './columns'
 
 
@@ -20,15 +20,15 @@ export const BasicTable = () => {
     } = tableInstance
     return (
         <div>
-            <table {... getTableProps()}>
-                <thead> {headerGroups.map(headerGroup => {
-                     
+            <table className="table-bordered" {... getTableProps()}>
+                <thead>{headerGroups.map(headerGroup => {
+
                     <tr { ... headerGroup.getHeaderGroupProps() }>
                         {
-                            headerGroup.headers.map( column => {
-                            <th {column.getHeaderProps()}>{column.render('Header')}</th>
+                            headerGroup.headers.map(( column) => (
+                            <th {...column.getHeaderProps()}>{column.render('Header')}</th>
 
-                            })
+                            ))
                 }
                 </tr>
                 })}
@@ -39,7 +39,7 @@ export const BasicTable = () => {
                             prepareRow(row)
                             return (
                             <tr {... row.getRowProps()}> {
-                       row.cells.map(row => {
+                       row.cells.map(cell => {
                            <td {... cell.getCellProps()}>{cell.render('Cell')} </td>
                        })
                        }
