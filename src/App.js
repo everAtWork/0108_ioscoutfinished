@@ -1,10 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
-import { BasicTable } from './components/BasicTable'
+import { SortingTable } from './components/SortingTable'
 function App() {
   return (
-    <div className="App">
-      <BasicTable />
+    <div className="App bg-warning">
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col w-100">
+      <SortingTable />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
