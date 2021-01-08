@@ -1,6 +1,6 @@
 export const COLUMNS = [
     {
-        Header: 'key_info',
+        Header: 'Име',
         accessor: 'name'
     },
     {
