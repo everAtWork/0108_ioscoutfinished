@@ -1,12 +1,12 @@
 import './App.css';
-import { SortingTable } from './components/SortingTable'
+import { FilteringTable } from './components/FilteringTable'
 function App() {
   return (
-    <div className="App bg-warning">
+    <div className="App bg-primary">
       <div className="container-fluid">
         <div className="row">
-          <div className="col w-100">
-      <SortingTable />
+          <div className="col my-2 m-md-4">
+            <FilteringTable />
           </div>
         </div>
       </div>
