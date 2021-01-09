@@ -5,7 +5,7 @@ function App() {
     <div className="App bg-primary">
       <div className="container-fluid">
         <div className="row">
-          <div className="col my-2 m-md-4">
+          <div className="col my-2 m-md-4 d-flex flex-column align-items-center">
             <FilteringTable />
           </div>
         </div>

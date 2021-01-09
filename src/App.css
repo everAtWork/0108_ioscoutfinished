@@ -3,12 +3,17 @@
   margin: 0;
   padding: 0;
 }
-body {
+html,body, .App {
   min-height: 100vh;
+} 
+
+body {
   font-size: 1rem;
   font-family: Georgia, Cochin , 'Times New Roman', serif;
+  line-height: 1;
 }
 
 table {
   border-radius: 20px;
 }
+

@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { useTable, useGlobalFilter } from 'react-table'
+import { useTable, usePagination, useSortBy, useGlobalFilter } from 'react-table'
 import MOCK_DATA from '../assets/MOCK_DATA.json'
 import { COLUMNS, GROUPED_COLUMNS } from './columns'
 import { GlobalFilter } from './GlobalFilter'
@@ -12,32 +12,37 @@ export const FilteringTable = () => {
     getTableProps,
     getTableBodyProps,
     headerGroups,
-    rows,
+    page,
+    nextPage,
+    previousPage,
     prepareRow,
     state,
     setGlobalFilter,
   } = useTable({
     columns,
     data
-  }, useGlobalFilter)
+  },  useGlobalFilter, useSortBy , usePagination )
 
   const { globalFilter } = state
 
   return (
     <>
     <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter}/>
-      <table className="mx-auto w-75 table-bordered" {...getTableProps()}>
+      <table className="mt-1 mx-auto w-100 table table-responsive-sm table-dark table-striped table-hover" {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map(column => (
-                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                <th {...column.getHeaderProps(column.getSortByToggleProps())}>{column.render('Header')}
+                <span>
+                    {column.isSorted ? (column.isSortedDesc ? <span> &#8675;</span> : <span>&#8673;</span>) : ''}
+                </span></th>
               ))}
             </tr>
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {rows.map(row => {
+          {page.map(row => {
             prepareRow(row)
             return (
               <tr {...row.getRowProps()}>
@@ -49,6 +54,10 @@ export const FilteringTable = () => {
           })}
         </tbody>
       </table>
+      <div className="btn-div">
+          <button onClick={() => previousPage()} className="navbtn btn btn-dark m-1">Previous</button>
+          <button onClick={() => nextPage()} className="navbtn btn btn-dark m-1">Next</button>
+          </div>
     </>
   )
 }

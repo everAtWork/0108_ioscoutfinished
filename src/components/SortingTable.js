@@ -20,7 +20,7 @@ export const SortingTable = () => {
 
   return (
     <>
-      <table className="mx-auto table table-responsive-sm border-primary table-dark table-striped table-hover" {...getTableProps()}>
+      <table className="mx-auto table table-responsive-sm table-dark table-striped table-hover" {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
