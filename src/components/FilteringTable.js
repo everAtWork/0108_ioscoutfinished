@@ -1,12 +1,14 @@
 import React, { useMemo } from 'react'
 import { useTable, usePagination, useSortBy, useGlobalFilter } from 'react-table'
 import MOCK_DATA from '../assets/MOCK_DATA.json'
-import { COLUMNS, GROUPED_COLUMNS } from './columns'
+import { COLUMNS } from './columns'
 import { GlobalFilter } from './GlobalFilter'
+import Avatar from 'react-avatar';
 
 export const FilteringTable = () => {
-  const columns = useMemo(() => GROUPED_COLUMNS, [])
+  const columns = useMemo(() => COLUMNS, [])
   const data = useMemo(() => MOCK_DATA, [])
+  console.log(data)
 
   const {
     getTableProps,
@@ -33,7 +35,7 @@ export const FilteringTable = () => {
   return (
     <>
     <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter}/>
-      <table className="mx-auto w-100  table-dark table table-responsive-sm table table-hover" {...getTableProps()}>
+      <table className="mx-auto w-100 table-dark table-striped table table-responsive-sm table table-hover" {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
@@ -73,6 +75,7 @@ export const FilteringTable = () => {
           <button disabled={!canNextPage} onClick={() => gotoPage(pageCount - 1)} className="btn btn-dark">
               {'>>'}
           </button>
+          <Avatar round={true} maxInitials={1} textSizeRatio={4} size="64" name="Foo Bar" />
           </div>
     </>
   )

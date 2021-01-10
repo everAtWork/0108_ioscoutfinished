@@ -15,7 +15,8 @@ body {
   line-height: 1;
 }
 table {
-  border-radius: 1rem;
+  table-layout: fixed;
+  border-radius: .5rem;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
@@ -29,15 +30,14 @@ table > * {
   width: 100%;
 }
 .input-div input {
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
   border: none;
   color: black;
   background: #e7edf2;
   display: inline-block;
   width: 100%;
-  padding: 1rem;
-  padding-left: 2rem;
+  padding: 1rem 1rem 1rem 2rem;
 }
 .input-div label {
 position: absolute;

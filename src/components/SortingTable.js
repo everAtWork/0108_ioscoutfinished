@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react'
 import {  useSortBy, useTable } from 'react-table'
 import MOCK_DATA from '../assets/MOCK_DATA.json'
-import { COLUMNS, GROUPED_COLUMNS } from './columns'
+import { COLUMNS } from './columns'
 
 export const SortingTable = () => {
-  const columns = useMemo(() => GROUPED_COLUMNS, [])
+  const columns = useMemo(() => СOLUMNS, [])
   const data = useMemo(() => MOCK_DATA, [])
 
   const {
