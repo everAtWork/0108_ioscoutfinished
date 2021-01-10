@@ -8,12 +8,26 @@ html,body, .App {
 } 
 
 body {
+  color: white;
+  background: linear-gradient(to bottom, #132e41,#1b5e88);
   font-size: 1rem;
   font-family: Georgia, Cochin , 'Times New Roman', serif;
   line-height: 1;
 }
-
 table {
   border-radius: 20px;
 }
+table > * {
+  color: white;
+}
 
+
+.input-div {
+
+  width: 100%;
+}
+.input-div input {
+  display: inline-block;
+  width: 100%;
+  padding: 0.5rem;
+}

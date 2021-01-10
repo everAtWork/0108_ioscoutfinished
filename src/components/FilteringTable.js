@@ -15,6 +15,11 @@ export const FilteringTable = () => {
     page,
     nextPage,
     previousPage,
+    canNextPage,
+    canPreviousPage,
+    pageOptions,
+    gotoPage,
+    pageCount,
     prepareRow,
     state,
     setGlobalFilter,
@@ -23,12 +28,12 @@ export const FilteringTable = () => {
     data
   },  useGlobalFilter, useSortBy , usePagination )
 
-  const { globalFilter } = state
+  const { globalFilter, pageIndex } = state
 
   return (
     <>
     <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter}/>
-      <table className="mt-1 mx-auto w-100 table table-responsive-sm table-dark table-striped table-hover" {...getTableProps()}>
+      <table className="mt-1 mx-auto w-100 table table-responsive-sm table table-hover" {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
@@ -55,8 +60,19 @@ export const FilteringTable = () => {
         </tbody>
       </table>
       <div className="btn-div">
-          <button onClick={() => previousPage()} className="navbtn btn btn-dark m-1">Previous</button>
-          <button onClick={() => nextPage()} className="navbtn btn btn-dark m-1">Next</button>
+          <span>
+              Page{' '}
+              <strong>{pageIndex + 1} of {pageOptions.length}</strong>{' '}
+          </span>
+
+          <button disabled={!canPreviousPage} onClick={() => gotoPage(0)} className="btn btn-dark">
+              {'<<'}
+          </button>
+          <button disabled={!canPreviousPage} onClick={() => previousPage()} className="navbtn btn btn-dark m-1">Previous</button>
+          <button disabled={!canNextPage} onClick={() => nextPage()} className="navbtn btn btn-dark m-1">Next</button>
+          <button disabled={!canNextPage} onClick={() => gotoPage(pageCount - 1)} className="btn btn-dark">
+              {'>>'}
+          </button>
           </div>
     </>
   )
