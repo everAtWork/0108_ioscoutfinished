@@ -15,7 +15,9 @@ body {
   line-height: 1;
 }
 table {
-  border-radius: 20px;
+  border-radius: 1rem;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 table > * {
   color: white;
@@ -27,8 +29,10 @@ table > * {
   width: 100%;
 }
 .input-div input {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
   border: none;
-  color: #b7bcc0;
+  color: black;
   background: #e7edf2;
   display: inline-block;
   width: 100%;
