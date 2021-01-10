@@ -33,7 +33,7 @@ export const FilteringTable = () => {
   return (
     <>
     <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter}/>
-      <table className="mt-1 mx-auto w-100 table table-responsive-sm table table-hover" {...getTableProps()}>
+      <table className="mt-1 mx-auto w-100  table-dark table table-responsive-sm table table-hover" {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
